@@ -107,52 +107,6 @@ Content-Type: application/json
 }
 ```
 
-### Use SDK Request
-
-::: code-group
-
-```python
-# pip install --upgrade capsolver
-# export CAPSOLVER_API_KEY='...'
-
-import capsolver
-
-# capsolver.api_key = "..."
-solution = capsolver.solve({
-    "type": "AntiAwsWafTask",
-    "websiteURL": "https://efw47fpad9.execute-api.us-east-1.amazonaws.com/latest",
-    "proxy": "ip:port:user:pass"
-})
-```
-
-```go [golang]
-package main
-
-import (
-	"fmt"
-	capsolver_go "github.com/capsolver/capsolver-go"
-	"log"
-)
-
-func main() {
-	// first you need to install sdk
-	//go get github.com/capsolver/capsolver-go
-	//export CAPSOLVER_API_KEY='...' or
-	//capSolver := CapSolver{ApiKey:"..."}
-
-	capSolver := capsolver_go.CapSolver{}
-	solution, err := capSolver.Solve(map[string]any{
-		"type": "AntiAwsWafTaskProxyLess",
-		"websiteURL": "AntiAwsWafTask",
-		 "proxy":"ip:port:user:pass"
-	})
-	if err != nil {
-		log.Fatal(err)
-		return
-	}
-	fmt.Println(solution)
-}
-```
 
 ### Bypassing AWS WAF by Capsolver's Extension 
 
